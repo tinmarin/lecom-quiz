@@ -1,0 +1,18 @@
+{
+  "name": "lecom-quiz",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Sergio Marron <sergiolmarron@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/tinmarin/lecom-quiz",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
