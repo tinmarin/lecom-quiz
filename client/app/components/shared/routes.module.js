@@ -5,7 +5,8 @@
 
 	.config(function( $routeProvider) {
 
-		$routeProvider.otherwise("/");
+		$routeProvider
+    .otherwise("/");
 
 
 	});

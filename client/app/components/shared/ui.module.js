@@ -1,5 +1,5 @@
 (function(){
 
-  angular.module('ui.module', []);
+  angular.module('ui.module', ['ngMaterial']);
 
 })();

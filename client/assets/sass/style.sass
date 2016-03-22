@@ -1,2 +1,86 @@
+$primary-color: #2D8A41
+$secondary-color: #399C49
+
+$error-color: #FF5A5A
+
 html,body
-	background: pink
+  background-color: #eee
+  font:
+    family: 'Roboto', sans-serif
+    size: 20px
+  // padding: 16px
+  letter-spacing: 1px
+
+#content
+  padding: 16px
+
+.header
+  padding: 16px 16px 0
+
+  h1
+    margin: 0
+
+.question-container
+  margin-bottom: 20px
+  background-color: white
+  padding: 16px
+  .question
+    border-bottom: 3px solid $primary-color
+    padding-bottom: 10px
+    margin-bottom: 16px
+    font:
+      size: 1.5rem
+      weight: 500
+  .wrong
+    border-color: $error-color
+
+
+.answer.correct-answer
+  background-color: lightgreen
+  .correct-text
+    padding-left: 50px
+    font:
+      style: italic
+      size: 0.75rem
+.answer
+  margin-bottom: 10px
+  font:
+    weight: 300
+    size: 1.2rem
+
+.submit
+  button
+    width: 130px
+    height: 48px;
+  button.submit-button
+    background-color: $secondary-color !important
+  .results
+    margin: 40px
+    font:
+      size: 4rem
+    .percent
+      margin-top: 10px
+    .result
+      border-bottom: 1px solid;
+
+
+#content
+  md-radio-button.md-checked
+    .md-off
+      border-color: $secondary-color
+    .md-on
+      background-color: $secondary-color
+  md-radio-button.md-primary
+    .md-on
+      background-color: $secondary-color
+
+md-radio-button
+  color: #424242
+  padding: 4px 0
+  .md-ink-ripple
+    margin-left: 4px
+  .md-label
+    margin-left: 36px
+
+md-radio-button[disabled]
+  color: rgba(0,0,0,0.5);

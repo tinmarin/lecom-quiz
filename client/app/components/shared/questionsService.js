@@ -1,26 +1,21 @@
-(function () {
-	'use strict';
+(function(app){
 
-	angular
-		.module('quizApp')
-		.controller('HomeController', HomeController);
+  'use strict';
 
-    HomeController.$inject = ['$window'];
+  app.factory('questionsService', questionsService);
 
-  function HomeController($window){
+  function questionsService() {
 
-    var vm = this;
+    var service = {
+      getQuestions: getQuestions
+    };
 
-    vm.submitted = false;
+    function getQuestions(){
 
-    vm.letters = ['A','B','C','D','E','F'];
-
-    vm.correctAnswers = 0;
-
-    vm.questions = [
+      var data = {
+        "questions": [
           {
             "question": "What shape do hereditary spherocyte RBCs have?",
-            "correct": true,
             "answers": [
               {
                 "text": "Bi-concave"
@@ -39,9 +34,8 @@
                 "text": "Quadrangular"
               }
             ]
-           },{
+          },{
             "question": "The most common cause of hereditary spherocytosis is due to:",
-            "correct": true,
             "answers": [
               {
                 "text": "Autosomal Recessive – 20%"
@@ -62,7 +56,6 @@
             ]
           },{
             "question": "What is a diagnostic test used for hereditary spherocytosis?",
-            "correct": true,
             "answers": [
               {
                 "text": "Western blot with PCR"
@@ -83,7 +76,6 @@
             ]
           },{
             "question": "What are some signs/symptoms of hereditary spherocytosis?",
-            "correct": true,
             "answers": [
               {
                 "text": "Anemia, jaundice, splenomegaly, gall stones",
@@ -104,7 +96,6 @@
             ]
           },{
             "question": "Some treatments used for hereditary spherocytosis are:",
-            "correct": true,
             "answers": [
               {
                 "text": "Folic acid, iron, splenectomy"
@@ -123,66 +114,16 @@
                 "text": "Iron, anticoagulants, folic acid"
               }
             ]
-          },{
-            "question": "What shape do hereditary spherocyte RBCs have?",
-            "correct": true,
-            "answers": [
-              {
-                "text": "Bi-concave"
-              },
-              {
-                "text": "Triangular"
-              },
-              {
-                "text": "Spherical",
-                "correct" : true
-              },
-              {
-                "text": "Pyramidal"
-              },
-              {
-                "text": "Quadrangular"
-              }
-          ]
-        }
-        ];
+          }
+        ]
+      };
 
-    vm.showPercent = function() {
-
-      var percent = (vm.correctAnswers / vm.questions.length ) * 100;
-
-      return parseInt(percent)+ "%";
-
-    };
-
-    vm.refresh = function() {
-      $window.location.reload();
-    };
-
-    vm.submit = function(){
-      if(vm.quizForm.$invalid){
-        return;
-      }
-
-      vm.submitted = true;
-      vm.correctAnswers = 0;
-
-      vm.questions.forEach(function(question){
-
-        if (question.answers[question.selected].correct === true){
-          question.correct = true;
-          vm.correctAnswers += 1;
-        } else {
-          question.correct = false;
-        }
-      });
-
-      scrollDown();
-    };
-
-    function scrollDown() {
-      $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+      return data;
     }
-  }
 
-})();
+  return service;
+
+}
+
+
+})(angular.module('core.module'));

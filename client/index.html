@@ -8,22 +8,60 @@
 	<meta charset="UTF-8">
 	<meta name=viewport content="width=device-width, initial-scale=1">
 
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700italic,700' rel='stylesheet' type='text/css'>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.css">
   <link rel="stylesheet" href="/build/style.min.css">
 
 </head>
-<body ng-controller="HomeController as home">
-	<h1>This is a skeleton for a MEAN stack web app. Enjoy it! Ok. I will</h1>
+<body ng-controller="HomeController as vm" ng-cloak>
+  <div class="header">
+    <h1>Quiz</h1>
+  </div>
+  <div id="content">
+    <form ng-submit="vm.submit()" name="vm.quizForm">
 
+      <section class="question-container md-whiteframe-2dp" ng-repeat="question in vm.questions">
+        <div class="question" ng-class="{'wrong': !question.correct}">
+          <span>{{$index+1}}.</span> {{question.question}}
+        </div>
+        <div class="answer-container">
+          <div class="answers">
+            <md-radio-group ng-model="question.selected" required>
+              <md-radio-button value="{{$index}}" required ng-repeat="answer in question.answers" class="answer md-primary" ng-disabled="vm.submitted" ng-class="{'correct-answer': answer.correct && vm.submitted}">{{answer.text}} <span class="correct-text" ng-show="answer.correct && vm.submitted">correct answer</span></md-radio-button>
+            </md-radio-group>
+            <div class="answer" >
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="submit" layout="column" layout-align="center center">
+        <div class="actions">
+          <div layout="column" layout-align="center center">
+            <span ng-show="vm.quizForm.$error.required">Have you missed a question?</span>
+            <md-button class="md-raised md-primary submit-button" type="submit">Submit</md-button>
+          </div>
+          <md-button class="md-raised md-primary" ng-show="vm.submitted" ng-click="vm.refresh()">Do it again</md-button>
+        </div>
+        <div id="results" class="results" ng-show="vm.submitted" layout="column" layout-align="center center">
+          <span class="result">{{vm.correctAnswers}} out of {{vm.questions.length}}</span>
+          <span class="percent">{{vm.showPercent()}}</span>
+        </div>
+      </section>
+
+    </form>
+  </div>
 
   <!-- App Dependencies -->
-
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 
   <!-- App Main Files -->
   <script src="/client/app/app.js"></script>
@@ -35,6 +73,7 @@
   <script src="/client/app/components/home/homeController.js"></script>
 
   <!-- Services -->
+  <script src="/client/app/components/shared/questionsService.js"></script>
 
 
   <!-- Use this once js files are minified and concatenated (gulp build) -->
