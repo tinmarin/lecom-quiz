@@ -16,8 +16,8 @@
 
 </head>
 <body ng-controller="HomeController as vm" ng-cloak>
-  <div class="header">
-    <h1>Quiz</h1>
+  <div class="header" layout="row" layout-align="center center">
+    <h1>Hereditary Spherocytosis Quiz</h1>
   </div>
   <div id="content">
     <form ng-submit="vm.submit()" name="vm.quizForm">
@@ -61,23 +61,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.js"></script>
- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
 
   <!-- App Main Files -->
-  <script src="/client/app/app.js"></script>
+ <!--  <script src="/client/app/app.js"></script>
   <script src="/client/app/components/shared/core.module.js"></script>
   <script src="/client/app/components/shared/ui.module.js"></script>
   <script src="/client/app/components/shared/routes.module.js"></script>
 
-  <!-- Controllers -->
+
   <script src="/client/app/components/home/homeController.js"></script>
 
-  <!-- Services -->
-  <script src="/client/app/components/shared/questionsService.js"></script>
+
+  <script src="/client/app/components/shared/questionsService.js"></script> -->
 
 
   <!-- Use this once js files are minified and concatenated (gulp build) -->
-  <!-- <script src="/build/app.min.js"></script> -->
+  <script src="/build/app.min.js"></script>
 
 </body>
 </html>

@@ -58,10 +58,10 @@ gulp.task('nodemon', function (cb) {
 gulp.task('minify', ['angular', 'sass']);
 
 gulp.task('angular', function () {
-  gulp.src(['client/app/*.js', 'client/app/**/**/*.js'])
+  gulp.src(['client/app/*.js','client/app/**/**/*.js'])
     .pipe(concat('app.js'))
+    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(rename('app.min.js'))
     .pipe(gulp.dest('build'));
 });
 
