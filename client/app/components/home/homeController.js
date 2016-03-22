@@ -44,10 +44,10 @@
             "correct": true,
             "answers": [
               {
-                "text": "Autosomal Recessive – 20%"
+                "text": "Autosomal Recessive"
               },
               {
-                "text": "Autosomal Dominant – 75%",
+                "text": "Autosomal Dominant",
                 "correct": true
               },
               {
@@ -57,7 +57,7 @@
                 "text": "X-linked Dominant"
               },
               {
-                "text": "Spontaneous Mutation – 5%"
+                "text": "Spontaneous Mutation"
               }
             ]
           },{
